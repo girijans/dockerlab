@@ -10,7 +10,7 @@ pipeline {
           }  
           stage ('Test') {
               steps {
-                  sh """ docker run  -d -p 3000:3000 nodejstest:latest 
+                  sh """docker run -d -p 3000:3000 nodejstest:latest 
                          curl localhost:3000
                          if ( echo $? = 0 )
                          exit
