@@ -17,7 +17,7 @@ pipeline {
                         environment {
                                STATUS = ""
                                     }
-                        export STATUS = \${?}
+                        STATUS = \${?}
                         if [ "${STATUS}" != "0" ]
                         then
                           exit 
