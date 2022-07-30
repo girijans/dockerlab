@@ -1,6 +1,7 @@
 pipeline {
     agent any 
     environment {
+        export STATUS = \${?}
         STATUS = ""
     }
     
@@ -17,7 +18,6 @@ pipeline {
               steps {
                   sh """docker run -d --name sample -p 3000:3000 nodejstest:latest 
                         curl localhost:3000
-                        export STATUS = \${?}
                         if [ "${STATUS}" != "0" ]
                         then
                           exit 
