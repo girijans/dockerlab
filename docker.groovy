@@ -12,7 +12,7 @@ pipeline {
           stage ('Test') {
               environment { STATUS = ""  }
               steps {
-                  sh docker run -d --name sample -p 3000:3000 nodejstest:latest
+                  sh """docker run -d --name sample -p 3000:3000 nodejstest:latest
                   #script {
                        #final String url = "http://localhost:8080"
                        #final String response = sh(script: "curl -s $url", returnStdout: true).trim()
@@ -25,6 +25,7 @@ pipeline {
                         then
                           exit 
                         fi
+                        """
                         # if [ echo ${} = 0 ]
                         # exit
                        
