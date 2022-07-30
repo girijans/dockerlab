@@ -27,7 +27,7 @@ pipeline {
                      """    
                   }
               }
-          }
+          
           stage ('Deploy') {
               steps {
                   sh """docker push girijans/nodejstest:latest
@@ -36,4 +36,5 @@ pipeline {
                      """   
               }
           }
-    }
+     }
+ }
