@@ -5,6 +5,7 @@ pipeline {
           stage ('Build') {
               steps {
                   git branch: 'main', url: 'https://github.com/girijans/dockerlab.git'
+                  sh "id"
                   sh "docker build . -t nodejstest:latest"
                     }
           }  
