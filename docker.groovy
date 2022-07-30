@@ -10,9 +10,8 @@ pipeline {
                     }
           }  
           stage ('Test') {
-              
+              environment { STATUS = ""  }
               steps {
-                  environment { STATUS = ""  }
                   sh """docker run -d --name sample -p 3000:3000 nodejstest:latest 
                         curl localhost:3000
                         STATUS = \${?}
