@@ -12,7 +12,8 @@ pipeline {
               steps {
                   sh """docker run -d --name sample -p 3000:3000 nodejstest:latest 
                         curl localhost:3000
-                        if [ "${echo ${?}}" != "0" ]
+                        export status = $?
+                        if [ "${status}" != "0" ]
                         then
                           exit 
                         fi
