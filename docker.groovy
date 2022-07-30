@@ -14,7 +14,7 @@ pipeline {
               steps {
                   sh docker run -d --name sample -p 3000:3000 nodejstest:latest
                   script {
-                       final string url = "http://localhost:8080"
+                       final String url = "http://localhost:8080"
                        final String response = sh(script: "curl -s $url", returnStdout: true).trim()
                        echo response
                   }
