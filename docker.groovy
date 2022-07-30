@@ -12,8 +12,8 @@ pipeline {
           stage ('Test') {
               
               steps {
+                  environment { STATUS = ""  }
                   sh """docker run -d --name sample -p 3000:3000 nodejstest:latest 
-                       environment { STATUS = ""  }
                         curl localhost:3000
                         STATUS = \${?}
                         if [ "${env.STATUS}" != "0" ]
