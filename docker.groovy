@@ -18,7 +18,7 @@ pipeline {
                                STATUS = ""
                                     }
                         STATUS = \${?}
-                        if [ "${STATUS}" != "0" ]
+                        if [ "${env.STATUS}" != "0" ]
                         then
                           exit 
                         fi
