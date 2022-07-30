@@ -1,5 +1,8 @@
 pipeline {
     agent any 
+    environment {
+        STATUS = ""
+    }
     
       stages {
           stage ('Build') {
@@ -12,8 +15,6 @@ pipeline {
           stage ('Test') {
               
               steps {
-                  def function () {
-                  env.STATUS = ""
                   sh """docker run -d --name sample -p 3000:3000 nodejstest:latest 
                         curl localhost:3000
                         export STATUS = \${?}
